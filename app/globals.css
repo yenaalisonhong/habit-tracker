@@ -51,14 +51,34 @@
 
 @layer base {
   body {
-    @apply text-foreground;
+    @apply text-foreground font-sans;
+    letter-spacing: 0.01em;
     font-feature-settings: "rlig" 1, "calt" 1;
-    background-color: hsl(var(--background));
-    background-image:
-      radial-gradient(circle at 20% 20%, rgba(255, 182, 210, 0.35) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(168, 216, 240, 0.25) 0%, transparent 50%),
-      radial-gradient(circle at 50% 50%, rgba(255, 224, 236, 0.4) 0%, transparent 70%);
+    background-color: #fffafb;
+    position: relative;
+    isolation: isolate;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image: url("/images/leopard-pattern.svg");
+    background-size: 240px 240px;
+    background-repeat: repeat;
     background-attachment: fixed;
+    opacity: 0.42;
+    pointer-events: none;
+  }
+
+  .dark body {
+    background-color: hsl(330 30% 10%);
+  }
+
+  .dark body::before {
+    opacity: 0.18;
+    filter: brightness(0.55) saturate(0.7);
   }
 }
 

@@ -38,11 +38,14 @@ export default function DashboardPage() {
 
       {/* ── Main Content ── */}
       <main className="mx-auto max-w-5xl px-4 sm:px-6 py-6 space-y-6">
-        <div className="flex items-center gap-2 text-sm text-pink-400/80">
-          <span>🐱</span>
-          <span className="italic">오늘도 귀엽게 습관을 지켜봐요!</span>
-          <span>✨</span>
-        </div>
+        <blockquote className="border-l-2 border-pink-300 dark:border-pink-700 pl-4">
+          <p className="text-sm italic text-pink-500/90 dark:text-pink-300/90 leading-relaxed">
+            „In jedem Anfang wohnt ein Zauber, der uns beschützt und der uns hilft, zu leben.“
+          </p>
+          <footer className="mt-1.5 text-xs text-pink-400/70">
+            — Hermann Hesse
+          </footer>
+        </blockquote>
 
         <GoalProgressPanel />
 

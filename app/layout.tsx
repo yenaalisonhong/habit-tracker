@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Nunito } from "next/font/google";
+import { Gaegu } from "next/font/google";
 import "./globals.css";
 import { TrackerProvider } from "@/context/TrackerContext";
 import { YearWrappedGate } from "@/components/dashboard/YearWrappedGate";
 
-const nunito = Nunito({
+const gaegu = Gaegu({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["300", "400", "700"],
+  variable: "--font-gaegu",
 });
 
 export const metadata: Metadata = {
@@ -21,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko" suppressHydrationWarning>
-      <body className={nunito.className}>
+      <body className={`${gaegu.className} ${gaegu.variable}`}>
         <TrackerProvider>
           {children}
           <YearWrappedGate />
