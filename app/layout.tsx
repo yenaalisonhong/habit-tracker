@@ -10,6 +10,8 @@ const gaegu = Gaegu({
   variable: "--font-gaegu",
 });
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export const metadata: Metadata = {
   title: "Habit Tracker ♡ Goal · System · Habit",
   description: "귀여운 습관 추적 — 분기 목표 달성을 위한 키치 트래커",
@@ -21,7 +23,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko" suppressHydrationWarning>
+    <html
+      lang="ko"
+      suppressHydrationWarning
+      style={
+        {
+          "--pattern-url": `url("${basePath}/images/leopard-pattern.svg")`,
+        } as React.CSSProperties
+      }
+    >
       <body className={`${gaegu.className} ${gaegu.variable}`}>
         <TrackerProvider>
           {children}
